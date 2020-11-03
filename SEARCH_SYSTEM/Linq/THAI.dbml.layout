@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="THAI">
+  <DataContextMoniker Name="/THAIDataContext" />
+  <nestedChildShapes>
+    <classShape Id="4d31b0de-607f-45c2-9e9e-fba86671582d" absoluteBounds="1.25, 0.625, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/THAIDataContext/syschngwt" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5ec47333-8ae4-403c-9f7e-d3e65606292e" absoluteBounds="1.2649999999999997, 1.085, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="4afea725-f2cb-42b1-bf99-54aa47ccd70e" absoluteBounds="3.75, 0.625, 2, 2.7324039713541666">
+      <DataClassMoniker Name="/THAIDataContext/MAS_FAFDTYPE_NEW" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d3d0ae97-0f88-4e28-88be-4ff8d985aacc" absoluteBounds="3.7650000000000006, 1.085, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

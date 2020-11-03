@@ -1,0 +1,71 @@
+﻿.row {
+    margin-bottom: 10px;
+}
+.set-topic-input {
+    text-align: right;
+}
+@media screen and (max-width: 1000px) {
+  .set-topic-input{
+      text-align:left;
+  }
+}
+
+.show-none{
+    display:none;
+}
+
+.table-green {
+    background-color: #36A368;
+    color: #ffffff;
+}
+
+.table-orang {
+    background-color: #f1c40f;
+    color: #ffffff;
+}
+
+.topic-table {
+    font-size: 14px;
+}
+
+.div-topic-table {
+    margin-top: 40px;
+    margin-bottom: 13px;
+}
+
+.dropdown-list {
+    width: 100%;
+}
+
+.tabla-head-topic {
+    width: 55%;
+}
+
+.tabla-head-topic-file {
+    width: 40%;
+}
+
+.tabla-head-topic-view {
+    width: 5%;
+    font-size: 13px;
+}
+
+.table-row-font-left {
+    text-align: left;
+}
+
+.table-row-view {
+    text-align: center;
+    font-size: 13px;
+}
+.set-topic-head {
+    text-align: center;
+    font-size: 20px;
+}
+.set-modal-head {
+    text-align: center;
+    background-color: #38a86b;
+    padding-bottom: 15px;
+    color: white;
+}
+

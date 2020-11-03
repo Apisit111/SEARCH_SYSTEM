@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="LGT_FOOD_NEW" Class="THAIDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=10.111.28.130;Initial Catalog=LGT_FOOD_NEW;User ID=fusion" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="LGT_FOOD_NEWConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="fda.syschngwt" Member="syschngwts">
+    <Type Name="syschngwt">
+      <Column Name="chngwtcd" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="thachngwtnm" Type="System.String" DbType="VarChar(120) NOT NULL" CanBeNull="false" />
+      <Column Name="engchngwtnm" Type="System.String" DbType="VarChar(120)" CanBeNull="true" />
+      <Column Name="thacwabbr" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="engcwabbr" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="mapgis" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="chngwtgrpcd" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.MAS_FAFDTYPE_NEW" Member="MAS_FAFDTYPE_NEWs">
+    <Type Name="MAS_FAFDTYPE_NEW">
+      <Column Name="fdtypecd" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="fdtypename" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="engnm" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="fdtype_name_display" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="process_id" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="active" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="edit" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="fdtypecd_main" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="fdtypecd_show" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="ida" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+    </Type>
+  </Table>
+</Database>
