@@ -20,7 +20,28 @@ Namespace BAO_STORE
 
     Public Class StoredProcedures
         Inherits connection_db
+        Public Function SP_SEARCH_DATA_MAIN_DRIVE() As DataTable
+            Dim dt As New DataTable
+            Dim sql As String = ""
+            Dim clsds As New ClassDataset
+            sql = "exec SP_SEARCH_DATA_MAIN_DRIVE"
 
+            dt = Queryds(sql)
+            dt.TableName = "SP_SEARCH_DATA_MAIN_DRIVE"
+
+            Return dt
+        End Function
+
+        Public Function SP_SEARCH_DATA_FREGNTF(ByVal Y As String) As DataTable
+            Dim dt As New DataTable
+            Dim sql As String = ""
+            Dim clsds As New ClassDataset
+            sql = "exec SP_SEARCH_DATA_FREGNTF @y=" & Y
+
+            dt = Queryds(sql)
+            dt.TableName = "SP_SEARCH_DATA_FREGNTF"
+            Return dt
+        End Function
         Public Function SP_5_REPROCESS() As DataTable
             Dim dt As New DataTable
             Dim sql As String = ""
@@ -33,11 +54,6 @@ Namespace BAO_STORE
             Return dt
         End Function
 
-    End Class
-
-    Public Class StoredProcedures1
-        Inherits connection_db
-
         Public Function SP_6_REPROCESS() As DataTable
             Dim dt As New DataTable
             Dim sql As String = ""
@@ -49,12 +65,6 @@ Namespace BAO_STORE
 
             Return dt
         End Function
-
-    End Class
-
-    Public Class StoredProcedures2
-        Inherits connection_db
-
         Public Function SP_7_NEW() As DataTable
             Dim dt As New DataTable
             Dim sql As String = ""
@@ -66,12 +76,6 @@ Namespace BAO_STORE
 
             Return dt
         End Function
-
-    End Class
-
-    Public Class StoredProcedures3
-        Inherits connection_db
-
         Public Function SP_8_8ELO() As DataTable
             Dim dt As New DataTable
             Dim sql As String = ""

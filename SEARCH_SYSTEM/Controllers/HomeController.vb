@@ -42,8 +42,77 @@ Public Class HomeController
 
     '    Return DT_ALL
     'End Function
+    Function callData(ByVal DATA As String)
+        If DATA = "MainDrive" Then
+            Return LOAD_SEARCH_FOOD_MAIN_DRIVE()
+        ElseIf DATA = "Fregntf2020" Then
+            Return LOAD_SEARCH_FOOD_FREGNTF(2020)
+        ElseIf DATA = "Fregntf2019" Then
+            Return LOAD_SEARCH_FOOD_FREGNTF(2019)
+        ElseIf DATA = "Fregntf2018" Then
+            Return LOAD_SEARCH_FOOD_FREGNTF(2018)
+        ElseIf DATA = "Fregntf2017" Then
+            Return LOAD_SEARCH_FOOD_FREGNTF(2017)
+        ElseIf DATA = "Fregntf2016" Then
+            Return LOAD_SEARCH_FOOD_FREGNTF(2016)
+        ElseIf DATA = "Fregntf2015" Then
+            Return LOAD_SEARCH_FOOD_FREGNTF(2015)
+        End If
+        Return ""
+    End Function
+    Function LOAD_SEARCH_FOOD_MAIN_DRIVE()
+        Dim MODEL As New SEARCH_SYSTEM
+        Dim obj As New Object
 
-    Function PAGE_LOAD()
+        Dim dt As New DataTable
+
+        Dim bao_table As New BAO_STORE.StoredProcedures
+
+        dt = bao_table.SP_SEARCH_DATA_MAIN_DRIVE()
+
+        Dim jsons As New JsonResult
+        jsons = Json(DataTableToJSON(dt), JsonRequestBehavior.AllowGet)
+        jsons.MaxJsonLength = Integer.MaxValue
+        MODEL.DATA_LIST = jsons
+
+        Return JsonConvert.SerializeObject(MODEL, New JsonSerializerSettings With {.ReferenceLoopHandling = ReferenceLoopHandling.Ignore})
+    End Function
+    Function LOAD_SEARCH_FOOD_FREGNTF(ByVal y As Integer)
+        Dim MODEL As New SEARCH_SYSTEM
+        Dim obj As New Object
+
+        Dim dt As New DataTable
+
+        Dim bao_table As New BAO_STORE.StoredProcedures
+
+        dt = bao_table.SP_SEARCH_DATA_FREGNTF(y)
+
+        Dim jsons As New JsonResult
+        jsons = Json(DataTableToJSON(dt), JsonRequestBehavior.AllowGet)
+        jsons.MaxJsonLength = Integer.MaxValue
+        MODEL.DATA_LIST = jsons
+
+        Return JsonConvert.SerializeObject(MODEL, New JsonSerializerSettings With {.ReferenceLoopHandling = ReferenceLoopHandling.Ignore})
+    End Function
+    Function LOAD_SB7()
+        Dim MODEL As New SEARCH_SYSTEM
+        Dim obj As New Object
+
+        Dim dt As New DataTable
+
+        Dim bao_table As New BAO_STORE.StoredProcedures
+
+        dt = bao_table.SP_7_NEW()
+
+        Dim jsons As New JsonResult
+        jsons = Json(DataTableToJSON(dt), JsonRequestBehavior.AllowGet)
+        jsons.MaxJsonLength = Integer.MaxValue
+        MODEL.DATA_LIST = jsons
+
+        Dim ss2 As String = JsonConvert.SerializeObject(MODEL, New JsonSerializerSettings With {.ReferenceLoopHandling = ReferenceLoopHandling.Ignore})
+        Return ss2
+    End Function
+    Function LOAD_SB5_REPROCESS()
         Dim MODEL As New SEARCH_SYSTEM
         Dim obj As New Object
 
@@ -65,72 +134,84 @@ Public Class HomeController
 
     End Function
 
-    Function PAGE_LOAD1()
-        Dim MODEL As New SEARCH_SYSTEM
-        Dim obj As New Object
-
-        Dim dt As New DataTable
-
-        Dim bao_table As New BAO_STORE.StoredProcedures1
-
-        dt = bao_table.SP_6_REPROCESS()
-
-        Dim jsons As New JsonResult
-        jsons = Json(DataTableToJSON(dt), JsonRequestBehavior.AllowGet)
-        jsons.MaxJsonLength = Integer.MaxValue
-        MODEL.DATA_LIST1 = jsons
-
-        obj = MODEL
-
-        Dim ss1 As String = JsonConvert.SerializeObject(MODEL, New JsonSerializerSettings With {.ReferenceLoopHandling = ReferenceLoopHandling.Ignore})
-        Return ss1
+    Function LOAD_SB5_DS()
 
     End Function
 
-    Function PAGE_LOAD2()
+    Function LOAD_SB8()
         Dim MODEL As New SEARCH_SYSTEM
         Dim obj As New Object
 
         Dim dt As New DataTable
 
-        Dim bao_table As New BAO_STORE.StoredProcedures2
+        Dim bao_table As New BAO_STORE.StoredProcedures
 
-        dt = bao_table.SP_7_NEW()
+        dt = bao_table.SP_8_8ELO
 
         Dim jsons As New JsonResult
         jsons = Json(DataTableToJSON(dt), JsonRequestBehavior.AllowGet)
         jsons.MaxJsonLength = Integer.MaxValue
-        MODEL.DATA_LIST2 = jsons
-
-        obj = MODEL
+        MODEL.DATA_LIST = jsons
 
         Dim ss2 As String = JsonConvert.SerializeObject(MODEL, New JsonSerializerSettings With {.ReferenceLoopHandling = ReferenceLoopHandling.Ignore})
         Return ss2
-
     End Function
 
-    Function PAGE_LOAD3()
+    Function LOAD_SB6()
         Dim MODEL As New SEARCH_SYSTEM
         Dim obj As New Object
 
         Dim dt As New DataTable
 
-        Dim bao_table As New BAO_STORE.StoredProcedures3
+        Dim bao_table As New BAO_STORE.StoredProcedures
 
-        dt = bao_table.SP_8_8ELO()
+        dt = bao_table.SP_8_8ELO
 
         Dim jsons As New JsonResult
         jsons = Json(DataTableToJSON(dt), JsonRequestBehavior.AllowGet)
         jsons.MaxJsonLength = Integer.MaxValue
-        MODEL.DATA_LIST3 = jsons
+        MODEL.DATA_LIST = jsons
 
-        obj = MODEL
-
-        Dim ss3 As String = JsonConvert.SerializeObject(MODEL, New JsonSerializerSettings With {.ReferenceLoopHandling = ReferenceLoopHandling.Ignore})
-        Return ss3
-
+        Dim ss2 As String = JsonConvert.SerializeObject(MODEL, New JsonSerializerSettings With {.ReferenceLoopHandling = ReferenceLoopHandling.Ignore})
+        Return ss2
     End Function
 
+    Function LOAD_SB6_REPROCESS()
+        Dim MODEL As New SEARCH_SYSTEM
+        Dim obj As New Object
+
+        Dim dt As New DataTable
+
+        Dim bao_table As New BAO_STORE.StoredProcedures
+
+        dt = bao_table.SP_8_8ELO
+
+        Dim jsons As New JsonResult
+        jsons = Json(DataTableToJSON(dt), JsonRequestBehavior.AllowGet)
+        jsons.MaxJsonLength = Integer.MaxValue
+        MODEL.DATA_LIST = jsons
+
+        Dim ss2 As String = JsonConvert.SerializeObject(MODEL, New JsonSerializerSettings With {.ReferenceLoopHandling = ReferenceLoopHandling.Ignore})
+        Return ss2
+    End Function
+    Function LOAD_AOR17()
+        Dim MODEL As New SEARCH_SYSTEM
+        Dim obj As New Object
+
+        Dim dt As New DataTable
+
+        Dim bao_table As New BAO_STORE.StoredProcedures
+
+        dt = bao_table.SP_8_8ELO
+
+        Dim jsons As New JsonResult
+        jsons = Json(DataTableToJSON(dt), JsonRequestBehavior.AllowGet)
+        jsons.MaxJsonLength = Integer.MaxValue
+        MODEL.DATA_LIST = jsons
+
+        Dim ss2 As String = JsonConvert.SerializeObject(MODEL, New JsonSerializerSettings With {.ReferenceLoopHandling = ReferenceLoopHandling.Ignore})
+        Return ss2
+    End Function
     Function STATUS_NAME()
 
         Dim datatabledata As New DataTable

@@ -246,6 +246,18 @@
         });
         return response;
      };
+    this.setData = function (DATA) { //เรียก Full model
+        var response = $http({
+            method: "post",
+            url: "../HOME/callData", //ไปดูที่ไฟล์ DATA_CENTERController.vb
+            dataType: "json",
+            data: {
+                DATA: DATA
+
+            }
+        });
+        return response;
+    };
 
     this.PAGE_LOAD = function () {
         return $http.get("../Home/PAGE_LOAD");

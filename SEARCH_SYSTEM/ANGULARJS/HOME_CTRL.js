@@ -1,14 +1,8 @@
 ﻿app.controller('HOME_CTRL', function ($scope, $http, $location, SERVICE_CENTER) {
+    $scope.allone = [];
 
-    PAGE_LOAD();
-    PAGE_LOAD1();
-    PAGE_LOAD2();
-    PAGE_LOAD3();
-    STATUS_NAME();
-    REQUEST_TYPE();
-    THACHNGWTNM();
-    FDTYPENAME();
-    
+    load();
+
     $scope.message1 = "";
     $scope.message2 = "";
     $scope.message3 = "";
@@ -17,78 +11,102 @@
     $scope.currentPage = 0; // เริ่มที่ .page 0
     $scope.itemsPerPage = '10'; // แสดงกี่อันในหน้าแก้ตรงนี้ 
 
-    //Swal.fire({
-    //    title: 'โปรดรอสักครู่...',
-    //    allowEscapeKey: false,
-    //    allowOutsideClick: false,
-    //    background: '#FFFFFF',
-    //    showConfirmButton: false,
-    //    onOpen: () => {
-    //        Swal.showLoading();
-    //    }
+    function load() {
+        nnn();
+        STATUS_NAME();
+        REQUEST_TYPE();
+        THACHNGWTNM();
+        FDTYPENAME();
 
-    //});
+    }
 
-    function PAGE_LOAD() {
-        var getData = SERVICE_CENTER.PAGE_LOAD();
+    function setDataList() {
+        var getData = SERVICE_CENTER.setData('MainDrive');
         getData.then(function (datas) {
-            $scope.FULL_MODEL = datas.data;
-            $scope.ACTIVE = angular.copy($scope.FULL_MODEL.DATA_LIST.Data);
-
+            $scope.allone = datas.data.DATA_LIST.Data
+            $scope.BK = datas.data.DATA_LIST.Data
             $scope.message1 = "1"
-            nnn();
-            console.log($scope.ACTIVE)
+            console.log($scope.allone.length);
         }, function () {
             alert($scope.error_message);
         });
+        var getData = SERVICE_CENTER.setData('Fregntf2020');
+        getData.then(function (datas) {
+            $scope.allone = $scope.allone.concat(datas.data.DATA_LIST.Data)
+            $scope.BK = $scope.allone.concat(datas.data.DATA_LIST.Data)
+            $scope.message2 = "2"
+            console.log($scope.allone.length);
+        }, function () {
+            alert($scope.error_message);
+        });
+        var getData = SERVICE_CENTER.setData('Fregntf2019');
+        getData.then(function (datas) {
+            $scope.allone = $scope.allone.concat(datas.data.DATA_LIST.Data)
+            $scope.BK = $scope.allone.concat(datas.data.DATA_LIST.Data)
+            $scope.message3 = "3"
+            console.log($scope.allone.length);
+        }, function () {
+            alert($scope.error_message);
+        });
+        var getData = SERVICE_CENTER.setData('Fregntf2018');
+        getData.then(function (datas) {
+            $scope.allone = $scope.allone.concat(datas.data.DATA_LIST.Data)
+            $scope.BK = $scope.allone.concat(datas.data.DATA_LIST.Data)
+            $scope.message4 = "4"
+            console.log($scope.allone.length);
+        }, function () {
+            alert($scope.error_message);
+        });
+        var getData = SERVICE_CENTER.setData('Fregntf2017');
+        getData.then(function (datas) {
+            $scope.allone = $scope.allone.concat(datas.data.DATA_LIST.Data)
+            $scope.BK = $scope.allone.concat(datas.data.DATA_LIST.Data)
+            $scope.message4 = "4"
+            console.log($scope.allone.length);
+        }, function () {
+            alert($scope.error_message);
+        });
+        var getData = SERVICE_CENTER.setData('Fregntf2016');
+        getData.then(function (datas) {
+            $scope.allone = $scope.allone.concat(datas.data.DATA_LIST.Data)
+            $scope.BK = $scope.allone.concat(datas.data.DATA_LIST.Data)
+            $scope.message4 = "4"
+            console.log($scope.allone.length);
+        }, function () {
+            alert($scope.error_message);
+        });
+        var getData = SERVICE_CENTER.setData('Fregntf2015');
+        getData.then(function (datas) {
+            $scope.allone = $scope.allone.concat(datas.data.DATA_LIST.Data)
+            $scope.BK = $scope.allone.concat(datas.data.DATA_LIST.Data)
+            $scope.message4 = "4"
+            console.log($scope.allone.length);
+        }, function () {
+            alert($scope.error_message);
+        });
+        return new Promise(function (resolve) {
+            resolve($scope.allone);
+        })
+        //await PAGE_LOAD()
+        //await PAGE_LOAD1()
+        //await PAGE_LOAD2()
+        //await PAGE_LOAD3()
+    }
+    function PAGE_LOAD() {
+
     }
 
     function PAGE_LOAD1() {
-        var getData = SERVICE_CENTER.PAGE_LOAD1();
-        getData.then(function (datas) {
-            $scope.FULL_MODEL1 = datas.data;
-            $scope.ACTIVE1 = angular.copy($scope.FULL_MODEL1.DATA_LIST1.Data);
 
-            $scope.message2 = "2"
-            nnn();
-            console.log($scope.ACTIVE1)
-        }, function () {
-            alert($scope.error_message);
-        });
     }
 
     function PAGE_LOAD2() {
-        var getData = SERVICE_CENTER.PAGE_LOAD2();
-        getData.then(function (datas) {
-            $scope.FULL_MODEL2 = datas.data;
-            $scope.ACTIVE2 = angular.copy($scope.FULL_MODEL2.DATA_LIST2.Data);
 
-            $scope.message3 = "3"
-            nnn();
-            console.log($scope.ACTIVE2)
-        }, function () {
-            alert($scope.error_message);
-        });
     }
 
     function PAGE_LOAD3() {
-        var getData = SERVICE_CENTER.PAGE_LOAD3();
-        getData.then(function (datas) {
-            $scope.FULL_MODEL3 = datas.data;
-            $scope.ACTIVE3 = angular.copy($scope.FULL_MODEL3.DATA_LIST3.Data);
 
-            $scope.message4 = "4"
-            nnn();
-            
-            console.log($scope.ACTIVE3)
-            
-
-           
-
-        }, function () {
-            alert($scope.error_message);
-        });
-    }  
+    }
 
     function REQUEST_TYPE() {
         var getData = SERVICE_CENTER.REQUEST_TYPE();
@@ -120,9 +138,9 @@
 
     }
 
-    function STATUS_NAME(){
+    function STATUS_NAME() {
         var getData = SERVICE_CENTER.STATUS_NAME();
-        getData.then(function (datas) { 
+        getData.then(function (datas) {
 
             $scope.statusname = datas.data;
 
@@ -131,7 +149,7 @@
     }
 
 
-     function myfunction(input) {
+    function myfunction(input) {
         if (input !== undefined) {
             if (input == null) { return ""; }
             var bYears = 543;
@@ -144,24 +162,16 @@
 
             return _date;
         }
-     }
+    }
 
-   
+
     //$scope.IsVisible = false;
     $scope.refesh_search = function (DATA) {
-
-        nnn(); 
-        //$scope.IsVisible = true;
-        //$scope.getitem = sessionStorage.getItem('DATA_ALL');
-        //console.log($scope.getitem);
-
-       
-      
+        $scope.allone = [];
+        $scope.allone = $scope.allone.concat($scope.BK);
         if ($scope.x.RECEIVING_NUM != "" && $scope.x.RECEIVING_NUM != undefined) {//เลขรับ
             $scope.allone = $scope.allone.filter(function (d) {
                 return d.RECEIVING_NUM.indexOf($scope.x.RECEIVING_NUM) != -1
-
-
             });
         }
 
@@ -188,47 +198,27 @@
                 return d.PLACE_NAME.indexOf($scope.x.PLACE_NAME) != -1
             });
         }
-            
+
 
 
         if ($scope.x.RCVDATE != "" && $scope.x.RCVDATE != undefined) {//วันที่รับ
             $scope.allone = $scope.allone.filter(function (d, e) {
                 if ($scope.x.RCVDATE_TO != "" && $scope.x.RCVDATE_TO != undefined) {
-                    
                     return dateCheck($scope.x.RCVDATE, $scope.x.RCVDATE_TO, d.RCVDATE.substring(0, d.RCVDATE.indexOf(" ")))
-
                 } else {
-
                     return d.RCVDATE.substring(0, d.RCVDATE.indexOf(" ")).indexOf($scope.x.RCVDATE) != -1
-
                 }
-                
-
-
-                
-                    //e.RCVDATE.substring(0, e.RCVDATE.indexOf(" ")).indexOf($scope.x.RCVDATE) != -1;
-                
             });
         }
-
         if ($scope.x.APPDATE != "" && $scope.x.APPDATE != undefined) {//วันที่สิ้นสุด
             $scope.allone = $scope.allone.filter(function (d) {
                 if ($scope.x.APPDATE_TO != "" && $scope.x.APPDATE_TO != undefined) {
-
                     return dateCheck($scope.x.APPDATE, $scope.x.APPDATE_TO, d.APPDATE.substring(0, d.APPDATE.indexOf(" ")))
-
                 } else {
                     console.log($scope.x.APPDATE);
                     console.log(d.APPDATE.substring(0, d.APPDATE.indexOf(" ")));
                     return d.APPDATE.substring(0, d.APPDATE.indexOf(" ")).indexOf($scope.x.APPDATE) != -1
-
                 }
-                
-                //console.log(myfunction(d.RCVDATE));
-                //var b = myfunction(d.RCVDATE);
-                
-
-
             });
         }
 
@@ -258,27 +248,16 @@
                 return d.FDTYPECD === $scope.x.FDTYPENAME;
             });
         }
-        
-
-        
-
-        
-        
-        
-
-        console.log($scope.allone);
-        
-
 
 
         //form.submit();
 
 
 
-        
 
-            
-       
+
+
+
     }
 
     function dateCheck(from, to, check) {
@@ -293,72 +272,20 @@
         }
         return false;
     }
-
-    
-
     async function nnn() {
+        await setDataList();
+        await setPage();
 
-       
-        if ($scope.message1 != "" && $scope.message2 != "" && $scope.message3 != "" && $scope.message4 != "") {
-            $scope.Newact1 = $scope.ACTIVE;
-            $scope.Newact2 = $scope.ACTIVE1;
-            $scope.Newact3 = $scope.ACTIVE2;
-            $scope.Newact4 = $scope.ACTIVE3;
-
-
-            $scope.all1 = $scope.Newact1.concat($scope.Newact2 && $scope.Newact3);
-            $scope.allone = $scope.Newact4.concat($scope.all1);
-
-            //sessionStorage.setItem('DATA_ALL', $scope.allone);
-            
-
-            
-
-            $scope.currentPage = 1;
-            $scope.totalItems = $scope.allone.length;
-            $scope.entryLimit = 10; // items per page
-            $scope.noOfPages = Math.ceil($scope.totalItems / $scope.entryLimit); 
-
-            $scope.numrow = $scope.allone.count;
-
-            //Swal.close();
-
-
-            
-            
-        }
     }
 
-    //$scope.exportToExcel = function(tableID,filename = '') {
-    //    var downloadurl;
-    //    var dataFileType = 'application/vnd.ms-excel';
-    //    var tableSelect = document.getElementById(tableID);
-    //    var tableHTMLData = tableSelect.outerHTML.replace(/ /g, '%20');
-
-    //    // Specify file name
-    //    filename = filename ? filename + '.xls' : 'export_excel_data.xls';
-
-    //    // Create download link element
-    //    downloadurl = document.createElement("a");
-
-    //    document.body.appendChild(downloadurl);
-
-    //    if (navigator.msSaveOrOpenBlob) {
-    //        var blob = new Blob(['\ufeff', tableHTMLData], {
-    //            type: dataFileType
-    //        });
-    //        navigator.msSaveOrOpenBlob(blob, filename);
-    //        } else {
-    //        // Create a link to the file
-    //        downloadurl.href = 'data:' + dataFileType + ', ' + tableHTMLData;
-
-    //        // Setting the file name
-    //        downloadurl.download = filename;
-
-    //        //triggering the function
-    //        downloadurl.click();
-    //    }
-    //}
+    function setPage() {
+        $scope.currentPage = 1;
+        $scope.totalItems = $scope.allone.length;
+        $scope.entryLimit = 10; // items per page
+        $scope.noOfPages = Math.ceil($scope.totalItems / $scope.entryLimit);
+        $scope.numrow = $scope.allone.count;
+        console.log($scope.allone.length);
+    }
 
     $scope.BTN_EXPORT_EXCEL = function (item) {
 
@@ -366,7 +293,7 @@
     }
 
     function JSONToCSVConvertor(JSONData, ReportTitle, ShowLabel) {
-        
+
         //If JSONData is not an object then JSON.parse will parse the JSON string in an Object
         var arrData = typeof JSONData != 'object' ? JSON.parse(JSONData) : JSONData;
         console.log(arrData);

@@ -1,16 +1,4 @@
-﻿<script>
-    $(document).ready(function () {
-        $('.datepicker').datepicker({
-            format: 'dd/mm/yyyy',
-            todayBtn: true,
-            language: 'th',             //เปลี่ยน label ต่างของ ปฏิทิน ให้เป็น ภาษาไทย   (ต้องใช้ไฟล์ bootstrap-datepicker.th.min.js นี้ด้วย)
-            thaiyear: true              //Set เป็นปี พ.ศ.
-        }).datepicker("setDate", "0");  //กำหนดเป็นวันปัจุบัน
-    });
-
-    //$("#rcvdate").val(Date());
-</script>
-
+﻿
 <style>
 
     table {
@@ -155,8 +143,9 @@
                     <font size="6">วันที่รับ :&nbsp;</font>
                 </label>
             </div>
-            <div class="col-sm">
-                <input class="form-control input-lg datepicker"  data-date-language="th" data-provide="datepicker" data-date-format="dd/mm/yyyy" type="text" min="" max="" style="background: #e6e6e6;border-radius: 7px;" ng-model="x.RCVDATE" />
+            <div class="flex-gt">
+                @*<input class="form-control input-lg datepicker" data-date-language="th" data-provide="datepicker" data-date-format="dd/mm/yyyy" type="text" min="" max="" style="background: #e6e6e6;border-radius: 7px;" ng-model="x.RCVDATE" />*@
+                <md-datepicker ng-model="x.RCVDATE" md-placeholder="Enter date" md-open-on-focus=""></md-datepicker>
             </div>
             <div class="col-sm-auto">
                 <label>
