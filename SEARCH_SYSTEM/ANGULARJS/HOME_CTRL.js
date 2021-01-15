@@ -30,7 +30,61 @@
         }, function () {
             alert($scope.error_message);
         });
-        var getData = SERVICE_CENTER.setData('Fregntf2020');
+        //var getData = SERVICE_CENTER.setData('Fregntf2020');
+        //getData.then(function (datas) {
+        //    $scope.allone = $scope.allone.concat(datas.data.DATA_LIST.Data)
+        //    $scope.BK = $scope.allone.concat(datas.data.DATA_LIST.Data)
+        //    $scope.message2 = "2"
+        //    console.log($scope.allone.length);
+        //}, function () {
+        //    alert($scope.error_message);
+        //});
+        //var getData = SERVICE_CENTER.setData('Fregntf2019');
+        //getData.then(function (datas) {
+        //    $scope.allone = $scope.allone.concat(datas.data.DATA_LIST.Data)
+        //    $scope.BK = $scope.allone.concat(datas.data.DATA_LIST.Data)
+        //    $scope.message3 = "3"
+        //    console.log($scope.allone.length);
+        //}, function () {
+        //    alert($scope.error_message);
+        //});
+        //var getData = SERVICE_CENTER.setData('Fregntf2018');
+        //getData.then(function (datas) {
+        //    $scope.allone = $scope.allone.concat(datas.data.DATA_LIST.Data)
+        //    $scope.BK = $scope.allone.concat(datas.data.DATA_LIST.Data)
+        //    $scope.message4 = "4"
+        //    console.log($scope.allone.length);
+        //}, function () {
+        //    alert($scope.error_message);
+        //});
+        //var getData = SERVICE_CENTER.setData('Fregntf2017');
+        //getData.then(function (datas) {
+        //    $scope.allone = $scope.allone.concat(datas.data.DATA_LIST.Data)
+        //    $scope.BK = $scope.allone.concat(datas.data.DATA_LIST.Data)
+        //    $scope.message4 = "4"
+        //    console.log($scope.allone.length);
+        //}, function () {
+        //    alert($scope.error_message);
+        //});
+        //var getData = SERVICE_CENTER.setData('Fregntf2016');
+        //getData.then(function (datas) {
+        //    $scope.allone = $scope.allone.concat(datas.data.DATA_LIST.Data)
+        //    $scope.BK = $scope.allone.concat(datas.data.DATA_LIST.Data)
+        //    $scope.message4 = "4"
+        //    console.log($scope.allone.length);
+        //}, function () {
+        //    alert($scope.error_message);
+        //});
+        //var getData = SERVICE_CENTER.setData('Fregntf2015');
+        //getData.then(function (datas) {
+        //    $scope.allone = $scope.allone.concat(datas.data.DATA_LIST.Data)
+        //    $scope.BK = $scope.allone.concat(datas.data.DATA_LIST.Data)
+        //    $scope.message4 = "4"
+        //    console.log($scope.allone.length);
+        //}, function () {
+        //    alert($scope.error_message);
+        //});
+        var getData = SERVICE_CENTER.setData('FregProduct2020');
         getData.then(function (datas) {
             $scope.allone = $scope.allone.concat(datas.data.DATA_LIST.Data)
             $scope.BK = $scope.allone.concat(datas.data.DATA_LIST.Data)
@@ -39,7 +93,7 @@
         }, function () {
             alert($scope.error_message);
         });
-        var getData = SERVICE_CENTER.setData('Fregntf2019');
+        var getData = SERVICE_CENTER.setData('FregProduct2019');
         getData.then(function (datas) {
             $scope.allone = $scope.allone.concat(datas.data.DATA_LIST.Data)
             $scope.BK = $scope.allone.concat(datas.data.DATA_LIST.Data)
@@ -48,7 +102,7 @@
         }, function () {
             alert($scope.error_message);
         });
-        var getData = SERVICE_CENTER.setData('Fregntf2018');
+        var getData = SERVICE_CENTER.setData('FregProduct2018');
         getData.then(function (datas) {
             $scope.allone = $scope.allone.concat(datas.data.DATA_LIST.Data)
             $scope.BK = $scope.allone.concat(datas.data.DATA_LIST.Data)
@@ -57,7 +111,7 @@
         }, function () {
             alert($scope.error_message);
         });
-        var getData = SERVICE_CENTER.setData('Fregntf2017');
+        var getData = SERVICE_CENTER.setData('FregProduct2017');
         getData.then(function (datas) {
             $scope.allone = $scope.allone.concat(datas.data.DATA_LIST.Data)
             $scope.BK = $scope.allone.concat(datas.data.DATA_LIST.Data)
@@ -66,7 +120,7 @@
         }, function () {
             alert($scope.error_message);
         });
-        var getData = SERVICE_CENTER.setData('Fregntf2016');
+        var getData = SERVICE_CENTER.setData('FregProduct2016');
         getData.then(function (datas) {
             $scope.allone = $scope.allone.concat(datas.data.DATA_LIST.Data)
             $scope.BK = $scope.allone.concat(datas.data.DATA_LIST.Data)
@@ -75,7 +129,7 @@
         }, function () {
             alert($scope.error_message);
         });
-        var getData = SERVICE_CENTER.setData('Fregntf2015');
+        var getData = SERVICE_CENTER.setData('FregProduct2015');
         getData.then(function (datas) {
             $scope.allone = $scope.allone.concat(datas.data.DATA_LIST.Data)
             $scope.BK = $scope.allone.concat(datas.data.DATA_LIST.Data)
@@ -84,28 +138,10 @@
         }, function () {
             alert($scope.error_message);
         });
+
         return new Promise(function (resolve) {
             resolve($scope.allone);
         })
-        //await PAGE_LOAD()
-        //await PAGE_LOAD1()
-        //await PAGE_LOAD2()
-        //await PAGE_LOAD3()
-    }
-    function PAGE_LOAD() {
-
-    }
-
-    function PAGE_LOAD1() {
-
-    }
-
-    function PAGE_LOAD2() {
-
-    }
-
-    function PAGE_LOAD3() {
-
     }
 
     function REQUEST_TYPE() {

@@ -57,6 +57,18 @@ Public Class HomeController
             Return LOAD_SEARCH_FOOD_FREGNTF(2016)
         ElseIf DATA = "Fregntf2015" Then
             Return LOAD_SEARCH_FOOD_FREGNTF(2015)
+        ElseIf DATA = "FregProduct2020" Then
+            Return LOAD_SEARCH_FOOD_FREG_PRODUCT(2020)
+        ElseIf DATA = "FregProduct2019" Then
+            Return LOAD_SEARCH_FOOD_FREG_PRODUCT(2019)
+        ElseIf DATA = "FregProduct2018" Then
+            Return LOAD_SEARCH_FOOD_FREG_PRODUCT(2018)
+        ElseIf DATA = "FregProduct2017" Then
+            Return LOAD_SEARCH_FOOD_FREG_PRODUCT(2017)
+        ElseIf DATA = "FregProduct2016" Then
+            Return LOAD_SEARCH_FOOD_FREG_PRODUCT(2016)
+        ElseIf DATA = "FregProduct2015" Then
+            Return LOAD_SEARCH_FOOD_FREG_PRODUCT(2015)
         End If
         Return ""
     End Function
@@ -78,6 +90,23 @@ Public Class HomeController
         Return JsonConvert.SerializeObject(MODEL, New JsonSerializerSettings With {.ReferenceLoopHandling = ReferenceLoopHandling.Ignore})
     End Function
     Function LOAD_SEARCH_FOOD_FREGNTF(ByVal y As Integer)
+        Dim MODEL As New SEARCH_SYSTEM
+        Dim obj As New Object
+
+        Dim dt As New DataTable
+
+        Dim bao_table As New BAO_STORE.StoredProcedures
+
+        dt = bao_table.SP_SEARCH_DATA_FREGNTF(y)
+
+        Dim jsons As New JsonResult
+        jsons = Json(DataTableToJSON(dt), JsonRequestBehavior.AllowGet)
+        jsons.MaxJsonLength = Integer.MaxValue
+        MODEL.DATA_LIST = jsons
+
+        Return JsonConvert.SerializeObject(MODEL, New JsonSerializerSettings With {.ReferenceLoopHandling = ReferenceLoopHandling.Ignore})
+    End Function
+    Function LOAD_SEARCH_FOOD_FREG_PRODUCT(ByVal y As Integer)
         Dim MODEL As New SEARCH_SYSTEM
         Dim obj As New Object
 

@@ -42,6 +42,17 @@ Namespace BAO_STORE
             dt.TableName = "SP_SEARCH_DATA_FREGNTF"
             Return dt
         End Function
+
+        Public Function SP_SEARCH_DATA_FREG_PRODUCT(ByVal Y As String) As DataTable
+            Dim dt As New DataTable
+            Dim sql As String = ""
+            Dim clsds As New ClassDataset
+            sql = "exec SP_SEARCH_DATA_FREG_PRODUCT @y=" & Y
+
+            dt = Queryds(sql)
+            dt.TableName = "SP_SEARCH_DATA_FREG_PRODUCT"
+            Return dt
+        End Function
         Public Function SP_5_REPROCESS() As DataTable
             Dim dt As New DataTable
             Dim sql As String = ""
